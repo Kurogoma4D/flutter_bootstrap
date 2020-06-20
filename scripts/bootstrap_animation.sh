@@ -3,7 +3,7 @@ name=$1
 mkdir generated
 cd generated
 
-source=../app
+source=../animation
 rm -rf ${name}
 
 flutter create \
@@ -15,9 +15,9 @@ rm -rf ${name}/test
 
 cp -r ${source}/lib ${name}
 cp -r ${source}/test ${name}
-cp -r ${source}/assets ${name}
+cp -r ${source}/images ${name}
 cp ../analysis_options.yaml ${name}
 cp ../LICENSE_FORKED ${name}/LICENSE
 sed -e "s/flutter_bootstrap/${name}/g" ${source}/pubspec.yaml > ${name}/pubspec.yaml
 
-open ${name}
+mv ${name} ../../
