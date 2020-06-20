@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 name=$1
 cd generated
 
@@ -6,7 +6,7 @@ source=../package
 rm -rf ${name}
 
 flutter create \
-  --org com.mono0926 \
+  --org dev.krgm4d \
   --template package \
   ${name}
 
@@ -19,7 +19,7 @@ echo "export 'src/${name}.dart';" > ${name}/lib/${name}.dart
 cp -r ${source}/test ${name}
 cp ${source}/CHANGELOG.md ${name}
 cp ../analysis_options.yaml ${name}
-cp ../LICENSE ${name}
+cp ../LICENSE_FORKED ${name}/LICENSE
 sed -e "s/flutter_bootstrap/${name}/g" ${source}/pubspec.yaml > ${name}/pubspec.yaml
 
 cd -
